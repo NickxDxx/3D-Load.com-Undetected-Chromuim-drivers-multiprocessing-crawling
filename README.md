@@ -1,6 +1,9 @@
 # Parrel-UC-multiprocessing-
 11 drivers multiprocessing 25K pages with Cloudflare protection in 75 minutes.
 
+Each driver assigned 20 categories of postings, go through each category loop through pages.
+small challenge:
+Each driver keep browser open unil job done.
 
 ![11 drivers handle 200 categories ](https://user-images.githubusercontent.com/124453554/216781072-c82bc441-a13f-40d1-80ef-c584eb236207.png)
 ![Walmart IP changing Selenium ](https://user-images.githubusercontent.com/124453554/216781076-579da5b7-a41e-4dc6-b523-9908714c071e.png)
