@@ -28,53 +28,6 @@ categories10 = categories_link[180:199]
 categories11 = categories_link[200:]
 
 
-
-# def test_func(link):
-#     sub_results_links = []
-#     browser = uc.Chrome()
-#     browser.get(link)
-#     browser.maximize_window()
-#
-#     for x in range(2, 1000):
-#         WebDriverWait(browser, 25).until(
-#             EC.presence_of_element_located((By.XPATH, '/html/body/div[1]/div[2]/div/div/div[3]/div/div/div/div')))
-#         container = browser.find_element(By.XPATH, '/html/body/div[1]/div[2]/div/div/div[3]/div/div/div/div')
-#         results_links_raw = container.find_elements(By.TAG_NAME, 'h2')
-#         for link_raw in results_links_raw:
-#             link = link_raw.get_attribute('href')
-#             sub_results_links.append(link)
-#         print("Links added" + str(len(results_links_raw)))
-#         print("Total " + str(len(sub_results_links)))
-#         try:
-#             current_click_page = browser.find_element(By.CLASS_NAME, 'next_page').get_attribute('href')
-#             browser.get(current_click_page)
-#             print("Go to next page: " + str(x))
-#         except:
-#             print("Work done")
-#             return sub_results_links
-#
-#
-#
-#
-# # def multip():
-# #     links = ["https://3d-load.net/category/addon-resource", "https://3d-load.net/category/aiko-4/", "https://3d-load.net/category/genesis-3-female/aiko-7/"]
-# #     pool = Pool(processes=5)
-# #     for link_n in range(0,len(links)):
-# #         link = links[link_n]
-# #         pool.apply_async(test_func(link), args={links[link_n]})
-# #
-# #     pool.close()
-# #     pool.join()
-#
-#
-# if __name__ == '__main__':
-#     results_links = []
-#     with Pool(5) as p:
-#         for sub_results in p.map(test_func, ["https://3d-load.net/category/addon-resource", "https://3d-load.net/category/aiko-4/", "https://3d-load.net/category/genesis-3-female/aiko-7/", "https://3d-load.net/category/characters/animals/", "https://3d-load.net/category/genesis-8-male/ashan-8/", "https://3d-load.net/category/genesis-8-male/edward-8/", "https://3d-load.net/category/genesis-8-female/penny-8/", "https://3d-load.net/category/genesis-2-female/keiko-6/"]):
-#             print(sub_results)
-#
-
-#
 def test_func(links):
     sub_results_links = []
     browser = uc.Chrome()
@@ -105,3 +58,10 @@ def test_func(links):
                 break
     browser.close()
     return sub_results_links
+
+if __name__ == '__main__':
+    total_results_links = []
+    with Pool(11) as p:
+        for sub_results_link in p.map(test_func, [categories1,categories2,categories3,categories4,categories5,categories6,categories7,categories8,categories9,categories10,categories11]):
+            total_results_links.append(sub_results_link)
+    print(total_results_links)
